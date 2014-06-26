@@ -1,0 +1,32 @@
+﻿
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<body>
+
+<div class="table-wrap">
+    <table border="1">
+        @for (int i = 0; i < ViewBag.NumberOfRows; i++)
+        {
+            <tr>
+
+                @for (int j = 0; j < ViewBag.NumberOfColumns; j++)
+                {
+                    <td>@ViewBag.Table[i][j]</td>
+                }
+            </tr>
+        }
+    </table>
+</div>
+    <form>
+    @for (int i = 0; i < ViewBag.NumberOfColumns;i++ )
+    {
+        if(i%2==0){<p/>}
+        <label  class="for-input">Print @ViewBag.Table[0][i] here:</label>
+        <input class="txt-input" autofocus size="200" type="text" placeholder="@ViewBag.Table[1][i]" name="arg"/>
+    }
+        <p/>
+        <button autofocus type="submit" id = "submit" formaction="Search">Search</button>
+        </form>
+</body>

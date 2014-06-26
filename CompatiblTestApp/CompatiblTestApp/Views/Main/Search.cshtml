@@ -1,0 +1,25 @@
+﻿@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<body>
+    <label class="for-input">Search Results:</label>
+
+<div class="table-wrap">
+    <table border="1">
+        @for (int i = 0; i < ViewBag.NumberOfMatches; i++)
+        {
+            <tr>
+
+                @for (int j = 0; j < ViewBag.NumberOfColumns; j++)
+                {
+                    <td>@ViewBag.Matches[i][j]</td>
+                }
+            </tr>
+        }
+    </table>
+</div>
+    <form>
+        <button autofocus type="submit" id="submit" formaction="AfterButtonClick">Back</button>
+    </form>
+</body>
